@@ -1,4 +1,4 @@
-﻿namespace KhonshuProgramingAiDatabase.Common;
+﻿namespace KhonshuProgramingAiShared.Common;
 
 public enum Role
 {

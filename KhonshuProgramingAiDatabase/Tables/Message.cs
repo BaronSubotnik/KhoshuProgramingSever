@@ -1,4 +1,5 @@
 ﻿using KhonshuProgramingAiDatabase.Common;
+using KhonshuProgramingAiShared.Common;
 namespace KhonshuProgramingAiDatabase.Tables;
 
 public sealed class Message
