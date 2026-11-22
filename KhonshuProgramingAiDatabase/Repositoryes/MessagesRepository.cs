@@ -33,7 +33,7 @@ public sealed class MessagesRepository : IMessagesRepo
 
     public async Task<ChatMessagesDto> GetAllMessagesInChatByChatIdAsync(Int32 chatId)
     {
-        var messagesListFromCurrentChat = await db.Messages.Where(w => w.ChatId == chatId).OrderBy(o => o.CreatedAt).Select(s => new ViewMessageDto()
+        var messagesListFromCurrentChat = await db.Messages.AsNoTracking().Where(w => w.ChatId == chatId).OrderBy(o => o.CreatedAt).Select(s => new ViewMessageDto()
         {
             MessageText = s.Text,
             ImagePath = s.ImagePath,

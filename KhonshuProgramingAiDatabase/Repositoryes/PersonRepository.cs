@@ -2,6 +2,7 @@
 using KhonshuProgramingAiDatabase.Database;
 using KhonshuProgramingAiDatabase.Interfaces;
 using KhonshuProgramingAiDatabase.Tables;
+using KhonshuProgramingAiShared.Common;
 using KhonshuProgramingAiShared.Dto;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -33,6 +34,7 @@ public sealed class PersonRepository : IPersonRepo
         await db.Persons.AddAsync(addedPerson);
         
         await db.SaveChangesAsync();
+        logger.LogInformation($"--- Новый пользователь: {person.AsLoggerString()}");
         return addedPerson.Id;
     }
 
@@ -86,6 +88,11 @@ public sealed class PersonRepository : IPersonRepo
             Email = s.Email,
             
         }).FirstOrDefaultAsync();
+    }
+
+    public async Task<Boolean> UltimateCheckExistPersonByNameOrEmailAsync(String name, String email)
+    {
+        return await db.Persons.AsNoTracking().AnyAsync(p => p.PersonName == name || p.Email == email);
     }
     
     
