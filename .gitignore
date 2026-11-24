@@ -13,14 +13,12 @@ riderModule.iml
 *.sln.docstates
 *.suo
 
-KhoshuProgramingSever/appsettings.Development.json
+
 KhoshuProgramingSever/appsettings.json
 KhoshuProgramingSever/KhoshuProgramingSever.http
-KhoshuProgramingSever/Properties/
 
-appsettings.Development.json
-appsettings.Local.json
-appsettings.*.local.json
+
+
 secrets.json
 .env
 .env.*
